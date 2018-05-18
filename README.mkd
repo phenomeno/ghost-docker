@@ -7,14 +7,14 @@ A simple ghost deployment using docker-compose. 🐋
 If you don't have Docker installed on your server, run the following:
 
 ```
-$ ./scripts/install-docker.sh
+./scripts/install-docker.sh
 ```
 
 ### production 🔥
 
 Then simply run:
 ```
-PORT=80 docker-compose up -d
+GHOST_URL=http://your-domain.com PORT=80 docker-compose up -d
 ```
 
 This will serve ghost on port 80 on your server as a background process.

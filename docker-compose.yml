@@ -41,3 +41,4 @@ services:
       database__connection__user: root
       database__connection__password: password
       database__connection__database: ghost
+      url: "${GHOST_URL:-http://localhost:8080}"
