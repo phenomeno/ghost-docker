@@ -1,0 +1,39 @@
+version: '3.1'
+
+services:
+  web:
+    image: nginx:latest
+    volumes:
+    - ./nginx:/etc/nginx/conf.d
+    ports:
+    - "${PORT:-8080}:80"
+
+  db:
+    image: mysql:5.7
+    restart: always
+    volumes:
+    - ./mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3306"]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+
+  ghost:
+    image: ghost:1-alpine
+    restart: always
+    depends_on:
+      - db
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:2368"]
+      interval: 5s
+      timeout: 10s
+      retries: 10
+    environment:
+      database__client: mysql
+      database__connection__host: db
+      database__connection__user: root
+      database__connection__password: password
+      database__connection__database: ghost
