@@ -2,6 +2,8 @@
 
 A simple ghost deployment using docker-compose. 🐋
 
+For more on ghost, a really cool open-source publishing platform: https://github.com/TryGhost/Ghost
+
 ## setup 🔨
 
 If you don't have Docker installed on your server, run the following:
