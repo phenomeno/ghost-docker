@@ -3,6 +3,8 @@ version: '3.1'
 services:
   web:
     image: nginx:latest
+    links:
+    - ghost
     volumes:
     - ./nginx:/etc/nginx/conf.d
     ports:

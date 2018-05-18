@@ -2,7 +2,7 @@
 
 A simple ghost deployment using docker-compose. 🐋
 
-### setup 🔨
+## setup 🔨
 
 If you don't have Docker installed on your server, run the following:
 
@@ -10,7 +10,7 @@ If you don't have Docker installed on your server, run the following:
 $ ./scripts/install-docker.sh
 ```
 
-#### production 🔥
+### production 🔥
 
 Then simply run:
 ```
@@ -19,7 +19,7 @@ PORT=80 docker-compose up -d
 
 This will serve ghost on port 80 on your server as a background process.
 
-#### development 🐢
+### development 🐢
 
 ```
 docker-compose up
