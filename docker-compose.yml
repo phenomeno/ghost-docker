@@ -4,17 +4,17 @@ services:
   web:
     image: nginx:latest
     links:
-    - ghost
+      - ghost
     volumes:
-    - ./nginx:/etc/nginx/conf.d
+      - ./nginx:/etc/nginx/conf.d
     ports:
-    - "${PORT:-8080}:80"
+      - "${PORT:-8080}:80"
 
   db:
     image: mysql:5.7
     restart: always
     volumes:
-    - ./mysql:/var/lib/mysql
+      - ./mysql:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: password
     healthcheck:
@@ -26,6 +26,8 @@ services:
   ghost:
     image: ghost:1-alpine
     restart: always
+    links:
+      - db
     depends_on:
       - db
     healthcheck:
