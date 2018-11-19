@@ -24,7 +24,7 @@ services:
       retries: 10
 
   ghost:
-    image: ghost:1-alpine
+    image: ghost:2.6-alpine
     restart: always
     links:
       - db
